@@ -14,5 +14,7 @@ https://github.com/bLAckMaGe87/PTT.ps1/blob/main/PTT.ps1
 
 *Don't forget to adjust the COM number and AIOC device name... 
 
+*Press W for long or E for short tones for morse while holding shift.
+
 <img width="1043" height="736" alt="image" src="https://github.com/user-attachments/assets/94b54fc9-1377-482f-9dd1-857e4f50c0cc" />
 
