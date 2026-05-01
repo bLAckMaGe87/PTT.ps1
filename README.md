@@ -18,3 +18,4 @@ https://github.com/bLAckMaGe87/PTT.ps1/blob/main/PTT.ps1
 
 <img width="1043" height="736" alt="image" src="https://github.com/user-attachments/assets/94b54fc9-1377-482f-9dd1-857e4f50c0cc" />
 
+(Here is the burden project https://github.com/bLAckMaGe87/AIOC)
