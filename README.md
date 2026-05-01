@@ -9,3 +9,8 @@ Easily make your computer PTT with an AIOC and a Baofeng using powershell script
 <img width="1829" height="1023" alt="image" src="https://github.com/user-attachments/assets/cef7f874-b275-43f3-8848-368f3d2db262" />
 
 https://github.com/bLAckMaGe87/PTT.ps1/blob/main/PTT.ps1
+
+*Don't forget to adjust the COM number and AIOC device name... 
+
+<img width="1043" height="736" alt="image" src="https://github.com/user-attachments/assets/94b54fc9-1377-482f-9dd1-857e4f50c0cc" />
+
