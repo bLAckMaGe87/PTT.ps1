@@ -1,3 +1,10 @@
+#if necessary import the audio device cmdlets
+# Install the module
+Install-Module -Name AudioDeviceCmdlets -Force
+
+# Import it into your current session
+Import-Module AudioDeviceCmdlets
+
 function PTT()
 {
 $Signature = @'
