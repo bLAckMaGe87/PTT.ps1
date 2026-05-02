@@ -12,7 +12,7 @@ public static extern short GetAsyncKeyState(int vKey);
             
 
 
-            $synth = New-Object System.Speech.Synthesis.SpeechSynthesizer
+            
             $dog = Get-AudioDevice -List | Where-Object { $_.Type -eq "Playback" }
              #update with algorithm for COM auto-selector (its in c# right now)
             $cat = $dog | Where-Object {$_.name-match "AIOC*"} #name your AIOC playback device i.e. "...{$_.name-match "KO6HTCsAIOC_playback*"}
