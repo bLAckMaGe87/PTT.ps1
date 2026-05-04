@@ -7,6 +7,9 @@ Import-Module AudioDeviceCmdlets
 
 function PTT()
 {
+param ( 
+         [string]$portName
+        )
 $Signature = @'
 [DllImport("user32.dll")]
 public static extern short GetAsyncKeyState(int vKey);
@@ -15,21 +18,22 @@ public static extern short GetAsyncKeyState(int vKey);
             $KeyToWatch = 0x10
             $KeyToWatch2 = 0x45 
             $KeyToWatch3 = 0x57
+            $KeyToWatch4 = 0x54
             $breakloop = 0
             
 
 
             
             $dog = Get-AudioDevice -List | Where-Object { $_.Type -eq "Playback" }
-             #update with algorithm for COM auto-selector (its in c# right now)
-            $cat = $dog | Where-Object {$_.name-match "AIOC*"} #name your AIOC playback device i.e. "...{$_.name-match "KO6HTCsAIOC_playback*"}
+            $cat = $dog | Where-Object {$_.name-match "AIOC*"} #name your AIOC playback device i.e. "...{$_.name-match "KO6HTC-AIOC*"}
             Set-AudioDevice -Index $cat.index #-Playback
-            $port = New-Object System.IO.Ports.SerialPort COM5,9600,None,8,one #check your COM number per device...
+            $port = New-Object System.IO.Ports.SerialPort $portName,9600,None,8,one #check your com number per device
             $port.open()
             Write-Host "PORT OPENING" -BackgroundColor DarkRed -ForegroundColor Blue
             Write-Host "DEFAULT PRESS <Q> to HOLD TX, <SHIFT> TO PTT" -BackgroundColor DarkRed -ForegroundColor Blue
+            Write-Host "<T> to terminate (close port)" -BackgroundColor DarkRed -ForegroundColor Blue
 
-             
+            #$alreadySaidOn = 0
             $alreadySaidOff = 0
             $keyBeingPushed = 0
             $keyAlreadyOn = 0 
@@ -44,14 +48,22 @@ public static extern short GetAsyncKeyState(int vKey);
                 $isHeld2 = [bool]($KeyState2 -band 0x8000)
                 $KeyState3 = $User32::GetAsyncKeyState($KeyToWatch3)
                 $isHeld3 = [bool]($KeyState3 -band 0x8000)
+                $KeyState4 = $User32::GetAsyncKeyState($KeyToWatch4)
+                $isHeld4 = [bool]($KeyState4 -band 0x8000)
+
                 if($isHeld2)
                 {
-                    [System.Console]::Beep(1300, 200) #make your own beeps
+                    [System.Console]::Beep(1300, 200)
 
                 }
                 if($isHeld3)
                 {
                     [System.Console]::Beep(900, 400)
+
+                }
+                if($isHeld4)
+                {
+                    $breakloop = 1
 
                 }
 
@@ -114,6 +126,6 @@ public static extern short GetAsyncKeyState(int vKey);
                 }
  
             }
-            
+            $port.close()
 }
 PTT
