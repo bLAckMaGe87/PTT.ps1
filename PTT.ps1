@@ -129,7 +129,17 @@ public static extern short GetAsyncKeyState(int vKey);
             $port.close()
 }
 <#
-.EXAMPLE
+     .SYNOPSIS
+        With the AIOC or similar CM108 functionality transmit via the DTR pin.
+        May add device name later as a parameter.
+    .DESCRIPTION
+        Pressing (Q) with the function running will causes a transmission, (W) a semi-functional long tone and (E) a short one.
+        Press (T) to terminate and close the loop and port. Press [SHIFT] anytime to transmit. The same for (T) to terminate.
+    .PARAMETER portName
+        We will (portName) to name the functional COM port used to activate the DTR pin. 
+        Select your own output and input media to go with it.
+     .EXAMPLE
         PTT -portName "COM3"
         PTT -portName COM5
+        
 #>
