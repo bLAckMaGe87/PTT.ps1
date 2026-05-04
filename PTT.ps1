@@ -128,4 +128,8 @@ public static extern short GetAsyncKeyState(int vKey);
             }
             $port.close()
 }
-PTT
+<#
+.EXAMPLE
+        PTT -portName "COM3"
+        PTT -portName COM5
+#>
