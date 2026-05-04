@@ -30,7 +30,7 @@ public static extern short GetAsyncKeyState(int vKey);
             $port = New-Object System.IO.Ports.SerialPort $portName,9600,None,8,one #check your com number per device
             $port.open()
             Write-Host "PORT OPENING" -BackgroundColor DarkRed -ForegroundColor Blue
-            Write-Host "DEFAULT PRESS <Q> to HOLD TX, <SHIFT> TO PTT" -BackgroundColor DarkRed -ForegroundColor Blue
+            Write-Host "DEFAULT PRESS <Q> to HOLD TX, <SHIFT> anytime TO PTT" -BackgroundColor DarkRed -ForegroundColor Blue
             Write-Host "<T> to terminate (close port)" -BackgroundColor DarkRed -ForegroundColor Blue
 
             #$alreadySaidOn = 0
